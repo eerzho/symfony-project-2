@@ -9,4 +9,4 @@
 ###< symfony/framework-bundle ###
 
 /.idea
-/
+/.DS_Store
