@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TaskController extends AbstractController
 {
-    #[Route('/task/list', name: 'app_todolist_index', methods: ['GET'])]
+    #[Route('/task', name: 'app_todolist_index', methods: ['GET'])]
     public function index(TaskRepository $repository): Response
     {
         $tasks = $repository->findBy([], ['id' => 'DESC']);
@@ -24,7 +24,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-    #[Route('/task/list', name: 'app_todolist_store', methods: ['POST'])]
+    #[Route('/task', name: 'app_todolist_store', methods: ['POST'])]
     public function store(Request $request, EntityManagerInterface $manager): RedirectResponse
     {
         $title = $request->get('title');
@@ -43,7 +43,7 @@ class TaskController extends AbstractController
         return $this->redirectToRoute('app_todolist_index');
     }
 
-    #[Route('/task/list/{id}/update', name: 'app_todolist_update', methods: ['GET'])]
+    #[Route('/task/{id}/update', name: 'app_todolist_update', methods: ['GET'])]
     public function update(Task $task, EntityManagerInterface $manager): RedirectResponse
     {
         $task->setStatus(!$task->isStatus());
@@ -53,7 +53,7 @@ class TaskController extends AbstractController
         return $this->redirectToRoute('app_todolist_index');
     }
 
-    #[Route('/task/list/{id}/remove', name: 'app_todolist_destroy', methods: ['GET'])]
+    #[Route('/task/{id}/remove', name: 'app_todolist_destroy', methods: ['GET'])]
     public function destroy(Task $task, EntityManagerInterface $manager): RedirectResponse
     {
         $manager->remove($task);
