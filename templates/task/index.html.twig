@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ToDoList!{% endblock %}
+
+{% block body %}
+
+    <div class="header">
+        <h2>My To Do List</h2>
+        <form method="POST" action="{{ path('app_todolist_store') }}">
+            <input name="title" type="text" id="myInput" placeholder="Task title..."/>
+            <button type="submit" class="addBtn">Add a task</button>
+        </form>
+    </div>
+
+    <ul>
+
+        {% for task in tasks %}
+            <li class="{{ task.status ? 'checked' : '' }}">
+                <a href="{{ path('app_todolist_update', { id: task.id }) }}">
+                    <span class="task-list-item">{{ task.title }}</span>
+                </a>
+                <a onclick="return confirm('Are you sure to delete?')"
+                   href="{{ path('app_todolist_destroy', { id: task.id }) }}">
+                    <span class="close">X</span>
+                </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}
