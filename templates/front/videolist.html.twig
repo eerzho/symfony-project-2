@@ -83,7 +83,8 @@
                                             <!-- <button data-toggle="tooltip" data-placement="top" title="You don't like the video. Click to undo" type="button" class="btn btn-primary btn-outline-danger btn-sm mr-2">
                                             <i class="fa fa-thumbs-down"></i>
                                             </button> -->
-                                            <a href="{{ path('app_front_videodetails', { id: video } ) }}">Comments (32)</a>
+                                            <a href="{{ path('app_front_videodetails', { id: video } ) }}">Comments
+                                                (32)</a>
                                         </div>
                                         <small class="text-muted">9 mins</small>
                                     </div>
@@ -101,16 +102,21 @@
                             </div>
                             <div class="card-body">
                                 <h3>Video title</h3>
-                                <p class="card-text text-danger">Video for <b>MEMBERS</b> only. <a
-                                        href="pricing.html.twig">Sign
-                                        up</a> for one month for free.</p>
+                                <p class="card-text text-danger">
+                                    Video for <b>MEMBERS</b> only.
+                                    <a href="{{ path('app_front_pricing') }}">
+                                        Sign up
+                                    </a>
+                                    for one month for free.
+                                </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
 
                                         <i class="fa fa-thumbs-up mr-2"><small class="text-muted">(23)</small></i>
                                         <i class="fa fa-thumbs-down mr-2"><small class="text-muted">(9)</small></i>
 
-                                        <a href="{{ path('app_front_videodetails', { id: 113716040 } ) }}">Comments (32)</a>
+                                        <a href="{{ path('app_front_videodetails', { id: 113716040 } ) }}">Comments
+                                            (32)</a>
                                     </div>
                                     <small class="text-muted">9 mins</small>
                                 </div>
